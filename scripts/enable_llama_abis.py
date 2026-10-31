@@ -25,7 +25,9 @@ replace('android/build.gradle.kts',
         'abiFilters.addAll(listOf("arm64-v8a"))',
         'abiFilters.addAll(listOf("arm64-v8a", "armeabi-v7a", "x86_64"))')
 replace('android/build.gradle.kts',
-        '"-DGGML_CPU_AARCH64=ON",', '"-DGGML_CPU_AARCH64=OFF",')
+        '"-DGGML_CPU_AARCH64=ON",',
+        '"-DGGML_CPU_AARCH64=OFF", "-DCMAKE_JOB_POOLS=compile_pool=2", '
+        '"-DCMAKE_JOB_POOL_COMPILE=compile_pool",')
 replace('android/build.gradle.kts',
         '"-DGGML_DOTPROD=ON"', '"-DGGML_DOTPROD=OFF"')
 replace('android/CMakeLists.txt',
